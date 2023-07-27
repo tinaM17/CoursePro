@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+.outer-box{
+    width: 100vw;
+    height: 100vh;
+    background:linear-gradient(to top left, #09a3c9, #90e2ec);
+}
+
+.inner-box {
+    width: 400px;
+    height: 550px;
+    margin: 0 auto;
+    position: relative;
+    top: 40%;
+    transform: translateY(-40%);
+    padding: 20px 40px;
+    /* border: 4px solid black; */
+    /* background-color: #ffffff09; */
+    background:linear-gradient(to top left, #ffffffff, #ffffff33);
+    backdrop-filter: blur(8px);
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px #09a3c9;
+    z-index: 1;
+}
+
+.signup-header h1 {
+    font-size: 2.2rem;
+    color:rgb(29, 28, 28);
+}
+
+.signup-header p {
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.signup-main {
+    margin:10px 0;
+
+}
+
+.signup-main div {
+    margin: 5px 0;
+}
+
+.signup-main div label {
+    display: block;
+}
+
+.signup-main div input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #cccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.signup-main div input[type="submit"] {
+    background-color:#09a3c9;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.signup-main div input[type="submit"]:hover {
+    background-color:#036078;
+}
+
+.signup-footer div {
+    color:#555;
+    text-align: center;
+}
+
+.circle {
+    width:200px;
+    height: 200px;
+    background: linear-gradient(to left,rgb(243, 226, 226), #2396b3);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.c1 {
+    top:100px;
+    left:40px;
+}
+.c2 {
+    bottom: 120px;
+    right:60px;
+}
