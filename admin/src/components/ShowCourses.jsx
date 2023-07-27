@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { Typography, Card, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { BASE_URL } from './helper'
 
 function ShowCourses() {
   const [courses, setCourses] = React.useState([])
@@ -10,7 +11,7 @@ function ShowCourses() {
   const coursesPerPage=6;
   useEffect(() => {
     axios
-      .get('http://localhost:3000/admin/courses', {
+      .get(`${BASE_URL}/admin/courses`, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },

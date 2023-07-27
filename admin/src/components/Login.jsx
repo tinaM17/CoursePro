@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typography, Button, Card, TextField, Link } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { BASE_URL } from './helper'
 
 /// File is incomplete. You need to add input boxes to take input for users to login.
 function Login() {
@@ -48,7 +48,7 @@ function Login() {
           fullWidth={true}
           onClick={async () => {
             const res = await axios.post(
-              'http://localhost:3000/admin/login',
+              `${BASE_URL}/admin/login`,
               {
                 username: email,
                 password: password,

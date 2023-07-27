@@ -3,6 +3,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { userState } from '../recoil/atom'
 import { useEffect } from 'react'
 import axios from 'axios'
+import {BASE_URL} from './helper'
 
 const Appbar = () => {
   const navigate = useNavigate()
@@ -12,7 +13,7 @@ const Appbar = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/users/me', {
+      .get(`${BASE_URL}/users/me`, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },

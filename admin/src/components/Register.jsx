@@ -1,6 +1,7 @@
 import React from 'react'
 import { Typography, Button, Card, TextField, Link } from '@mui/material'
 import axios from 'axios'
+import { BASE_URL } from './helper'
 
 /// File is incomplete. You need to add input boxes to take input for users to register.
 function Register() {
@@ -45,7 +46,7 @@ function Register() {
           variant="contained"
           fullWidth={true}
           onClick={async () => {
-            const res = await axios.post('http://localhost:3000/admin/signup', {
+            const res = await axios.post(`${BASE_URL}/admin/signup`, {
               username: email,
               password: password,
             })

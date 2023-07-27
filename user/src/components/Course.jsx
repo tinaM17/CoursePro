@@ -5,6 +5,7 @@ import { courseState, showPurchaseState } from '../recoil/atom'
 import axios from 'axios'
 import { Card, Typography, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import {BASE_URL} from './helper'
 
 const Course = () => {
   let { courseId } = useParams()
@@ -16,7 +17,7 @@ const Course = () => {
     const fetchCourse = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/users/courses/${courseId}`,
+          `${BASE_URL}/users/courses/${courseId}`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -31,7 +32,7 @@ const Course = () => {
     const fetchPurchases = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3000/users/purchasedCourses', // Assuming the API endpoint to get user purchases
+          `${BASE_URL}/users/purchasedCourses`, // Assuming the API endpoint to get user purchases
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -232,7 +233,7 @@ const BuyNow = () => {
           onClick={async () => {
             console.log(course._id);
             const res = await axios.post(
-              'http://localhost:3000/users/courses/' + course._id,null,
+              `${BASE_URL}/users/courses/` + course._id,null,
               {
                 headers: {
                   Authorization: 'Bearer ' + localStorage.getItem('token'),

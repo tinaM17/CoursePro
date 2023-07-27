@@ -1,6 +1,7 @@
 import React from "react";
 import { Card,Typography,Button,TextField } from "@mui/material";
 import axios from 'axios'
+import { BASE_URL } from './helper'
 
 function CreateCourse() {
     const [title, setTitle] = React.useState("");
@@ -82,7 +83,7 @@ function CreateCourse() {
             fullWidth={true}
             onClick={async () => {
               const res = await axios.post(
-                'http://localhost:3000/admin/courses',
+                `${BASE_URL}/admin/courses`,
                 {
                   title: title,
                   description: description,

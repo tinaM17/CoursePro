@@ -5,6 +5,7 @@ import { purchaseState } from '../recoil/atom'
 import { CourseCard } from './Courses'
 import { Typography, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import {BASE_URL} from './helper'
 
 const Purchased = () => {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ const Purchased = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/users/purchasedCourses', {
+      .get(`${BASE_URL}/users/purchasedCourses`, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },

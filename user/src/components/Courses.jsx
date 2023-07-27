@@ -4,6 +4,7 @@ import { coursesState } from '../recoil/atom'
 import { useRecoilState } from 'recoil'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import {BASE_URL} from './helper'
 
 export const Courses = () => {
   const navigate = useNavigate()
@@ -13,7 +14,7 @@ export const Courses = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/users/courses', {
+      .get(`${BASE_URL}/users/courses`, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },

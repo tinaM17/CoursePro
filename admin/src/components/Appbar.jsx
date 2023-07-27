@@ -2,18 +2,21 @@ import { Typography, Button, Card } from '@mui/material'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { BASE_URL } from './helper'
 
 const Appbar = () => {
   const [user, setUser] = useState('')
   const navigate = useNavigate()
   useEffect(() => {
-    axios.get('http://localhost:3000/admin/me',{
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('token'),
-    }
-    }).then((res)=>{
+    axios
+      .get(`${BASE_URL}/admin/me`, {
+        headers: {
+          Authorization: 'Bearer ' + localStorage.getItem('token'),
+        },
+      })
+      .then((res) => {
         setUser(res.data.username)
-    })
+      })
     // fetch('http://localhost:3000/admin/me', {
     //   method: 'GET',
     //   headers: {

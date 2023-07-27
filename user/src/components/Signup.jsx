@@ -3,6 +3,7 @@ import '../assets/Signup.css'
 import { Button, TextField, Typography } from '@mui/material'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { BASE_URL } from './helper'
 
 const Signup = () => {
   const [name, setName] = useState('')
@@ -71,14 +72,11 @@ const Signup = () => {
               <Button
                 variant="contained"
                 onClick={async () => {
-                  const res = await axios.post(
-                    'http://localhost:3000/users/signup',
-                    {
-                      name: name,
-                      username: email,
-                      password: password,
-                    }
-                  )
+                  const res = await axios.post(`${BASE_URL}/users/signup`, {
+                    name: name,
+                    username: email,
+                    password: password,
+                  })
                   localStorage.setItem('token', res.data.token)
                   navigate('/login')
                 }}

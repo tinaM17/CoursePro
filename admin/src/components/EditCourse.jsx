@@ -5,6 +5,7 @@ import axios from 'axios'
 import { atom, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import editImg from '../assets/pen.png'
 import deleteImg from '../assets/delete.png'
+import { BASE_URL } from './helper'
 
 const titleState = atom({
   key: 'titleState',
@@ -47,7 +48,7 @@ const EditCourse = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3000/admin/course/' + courseId, {
+      .get(`${BASE_URL}/admin/course/` + courseId, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('token'),
         },
@@ -179,7 +180,7 @@ function CourseCard(props) {
             }}
             onClick={async () => {
               const res = await axios.delete(
-                'http://localhost:3000/admin/course/' + course._id,
+                `${BASE_URL}/admin/course/` + course._id,
                 {
                   headers: {
                     Authorization: 'Bearer ' + localStorage.getItem('token'),
@@ -267,7 +268,7 @@ function EditForm() {
         onClick={() => {
           axios
             .put(
-              'http://localhost:3000/admin/course/' + course._id,
+              `${BASE_URL}/admin/course/` + course._id,
               {
                 title: title,
                 description: description,
