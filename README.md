@@ -27,7 +27,7 @@ The backend will be running at http://localhost:3000.
 cd admin
 npm install
 ## Set up environment variables:
-In the helper.jsx update the BASE_URL
+In the helper.jsx update the
 BASE_URL=http://localhost:3000
 Make sure to replace http://localhost:3000 with the actual backend URL if deploying to a different environment.
 
@@ -40,7 +40,7 @@ The admin panel will be running at http://localhost:5173.
 cd user
 npm install
 ## Set up environment variables:
-In the helper.jsx update the BASE_URL
+In the helper.jsx update the
 BASE_URL=http://localhost:3000
 Replace http://localhost:3000 with the actual backend URL if deploying to a different environment.
 
