@@ -17,21 +17,9 @@ const Appbar = () => {
       .then((res) => {
         setUser(res.data.username)
       })
-    // fetch('http://localhost:3000/admin/me', {
-    //   method: 'GET',
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //     Authorization: 'Bearer ' + localStorage.getItem('token'),
-    //   },
-    // }).then((res) => {
-    //   res.json().then((data) => {
-    //     console.log(data.username)
-    //     setUser(data.username)
-    //   })
-    // })
   }, [])
   return (
-    <div style={{ display: 'flex'}}>
+    <div style={{ display: 'flex' }}>
       <Card style={{ padding: 10, width: '100vw', borderRadius: 0 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div>
@@ -47,7 +35,7 @@ const Appbar = () => {
                 paddingTop: 5,
               }}
             >
-              {user}
+              {user.charAt(0).toUpperCase()}
             </div>
           ) : (
             <div>

@@ -11,10 +11,9 @@ import Footer from './components/Footer'
 import EditCourse from './components/EditCourse'
 import { RecoilRoot } from 'recoil'
 
-
 function App() {
   return (
-    <div style={{ backgroundColor: 'white' }}>
+    <div style={{ backgroundColor: 'white', width: '100vw', height: '100vh' }}>
       <RecoilRoot>
         <Router>
           <Appbar />

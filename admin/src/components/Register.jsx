@@ -51,21 +51,7 @@ function Register() {
               password: password,
             })
             localStorage.setItem('token', res.data.token)
-            window.location = '/'
-            // fetch('http://localhost:3000/admin/signup', {
-            //   method: 'POST',
-            //   body: JSON.stringify({
-            //     username: email,
-            //     password: password,
-            //   }),
-            //   headers: {
-            //     'Content-type': 'application/json',
-            //   },
-            // }).then((res) => {
-            //   res.json().then((data) => {
-            //     localStorage.setItem("token",data.token)
-            //   })
-            // })
+            window.location = '/login'
           }}
         >
           Sign up
