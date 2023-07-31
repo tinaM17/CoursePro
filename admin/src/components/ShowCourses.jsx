@@ -7,8 +7,8 @@ import { BASE_URL } from './helper'
 
 function ShowCourses() {
   const [courses, setCourses] = React.useState([])
-  const [currentPage,setCurrentPage]=React.useState(1);
-  const coursesPerPage=6;
+  const [currentPage, setCurrentPage] = React.useState(1)
+  const coursesPerPage = 6
   useEffect(() => {
     axios
       .get(`${BASE_URL}/admin/courses`, {
@@ -20,18 +20,18 @@ function ShowCourses() {
         setCourses(res.data.Courses)
       })
   }, [])
-  const lastIndex=currentPage*coursesPerPage;
-  const firstIndex=lastIndex-coursesPerPage;
-  const currentCourse=courses.slice(firstIndex,lastIndex);
+  const lastIndex = currentPage * coursesPerPage
+  const firstIndex = lastIndex - coursesPerPage
+  const currentCourse = courses.slice(firstIndex, lastIndex)
 
-  const paginate=(pageNumber)=>{
+  const paginate = (pageNumber) => {
     setCurrentPage(pageNumber)
   }
 
-  if (courses.length==0) {
+  if (courses.length == 0) {
     return (
       <div>
-        <Typography variant="h4" style={{ textAlign: 'center',marginTop:10 }}>
+        <Typography variant="h4" style={{ textAlign: 'center', marginTop: 10 }}>
           To see all the course you have to login first
         </Typography>
       </div>
@@ -52,30 +52,28 @@ function ShowCourses() {
         {currentCourse.map((course) => (
           <Course course={course} />
         ))}
-        </div>
-        <div
-          style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}
+      </div>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
+        <Button
+          variant="contained"
+          style={{ marginRight: 10 }}
+          disabled={currentPage === 1}
+          onClick={() => {
+            paginate(currentPage - 1)
+          }}
         >
-          <Button
-            variant="contained"
-            style={{ marginRight: 10 }}
-            disabled={currentPage === 1}
-            onClick={() => {
-              paginate(currentPage - 1)
-            }}
-          >
-            Prev
-          </Button>
-          <Button
-            variant="contained"
-            disabled={currentCourse.length < coursesPerPage}
-            onClick={() => {
-              paginate(currentPage + 1)
-            }}
-          >
-            Next
-          </Button>
-        </div>
+          Prev
+        </Button>
+        <Button
+          variant="contained"
+          disabled={currentCourse.length <= coursesPerPage}
+          onClick={() => {
+            paginate(currentPage + 1)
+          }}
+        >
+          Next
+        </Button>
+      </div>
     </div>
   )
 }

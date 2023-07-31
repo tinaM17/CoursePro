@@ -1,10 +1,10 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Typography, Card } from '@mui/material'
 import { coursesState } from '../recoil/atom'
 import { useRecoilState } from 'recoil'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import {BASE_URL} from './helper'
+import { BASE_URL } from './helper'
 
 export const Courses = () => {
   const navigate = useNavigate()
@@ -87,10 +87,10 @@ export const Courses = () => {
         </div>
       )}
       {/* Pagination controls */}
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20}}>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop: 20 }}>
         <Button
           variant="contained"
-          style={{marginRight:10}}
+          style={{ marginRight: 10 }}
           disabled={currentPage === 1}
           onClick={() => paginate(currentPage - 1)}
         >
@@ -98,7 +98,7 @@ export const Courses = () => {
         </Button>
         <Button
           variant="contained"
-          disabled={currentCourses.length < coursesPerPage}
+          disabled={currentCourses.length <= coursesPerPage}
           onClick={() => paginate(currentPage + 1)}
         >
           Next
